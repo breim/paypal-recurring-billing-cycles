@@ -4,7 +4,21 @@ PayPal Express Checkout API Client for recurring billing.
 
 == Installation
 
-  gem install paypal-recurring
+  gem 'paypal-recurring-billing-cycles', :git => 'git://github.com/breim/paypal-recurring-billing-cycles.git'
+
+
+
+== On model paypal_payament.rb and action make_recurring
+
+  def make_recurring
+    process :request_payment
+    process :create_recurring_profile, period: :monthly,total_billing_cycle: 2, frequency: 1, start_at: Time.zone.now
+  end
+
+  Agora você pode passar o total de vezes que ele será debitado total_billing_cycle: 2, no caso duas.. se for 20.. só settar aí abs.
+
+
+
 
 == Usage
 
